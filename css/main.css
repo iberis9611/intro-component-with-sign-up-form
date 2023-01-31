@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* || RESET */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* || VARIABLES */
+:root {
+    --FF: 'Poppins', sans-serif;
+    --FS: 1rem;
+    --FS-L: 2rem;
+
+    --BD-BGCOLOR: hsl(0, 100%, 74%);
+    --COLOR: hsl(0, 0%, 100%);
+    --FORM-BGCOLOR: hsl(0, 0%, 100%);
+    --FORM-COLOR: hsl(246, 25%, 77%);
+    --INPUT-BORDER-COLOR: hsl(0, 6%, 90%);
+    --INPUT-HOVER-BORDER-COLOR:hsl(249, 10%, 26%);
+    --BUTTON-BGCOLOR: hsl(154, 58%, 38%);
+    --BUTTON-FTCOLOR:hsl(154, 59%, 51%);
+    --BUTTON-COLOR: hsl(0, 0%, 100%);
+    --BUTTON-HOVER-COLOR:hsl(154, 36%, 67%);
+    --ERROR-COLOR: hsl(0, 100%, 74%);
+    --BORDER-RADIUS: 0.5em;
+}
+
+/* || UTILITY CLASSES */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.span1 {
+    font-weight: 700;
+}
+
+.span2 {
+    color: var(--BD-BGCOLOR);
+    font-weight: 600;
+}
+
+.error {
+    font-style: italic;
+    color: var(--ERROR-COLOR);
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+.red::placeholder {
+    color: var(--ERROR-COLOR);
+}
+
+/* || GENERAL */
+body {
+    font-family: var(--FF);
+    font-size: var(--FS);
+    background-color: var(--BD-BGCOLOR);
+    background-image: url("../images/bg-intro-mobile.png");
+    color: var(--COLOR);
+    min-height: 100vh;
+    padding: 4em 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-size: var(--FS-L);
+}
+
+section {
+    padding: 1.5em;
+    border-radius: var(--BORDER-RADIUS);
+    box-shadow: 0 0.5em hsl(0, 0%, 0%, 0.2);
+}
+
+fieldset {
+    border-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+input {
+    padding: 1.5em;
+    border: 1px solid var(--INPUT-BORDER-COLOR);
+    border-radius: var(--BORDER-RADIUS);
+    font-weight: 600;
+}
+
+/* || MAIN COMPONENT*/
+.main {
+    width: min(100%, 70em);
+    height: inherit;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 15em 35em;
+    gap: 4em;
+}
+
+.main_article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.signup section:first-child {
+    background-color: hsl(255, 34%, 49%) ;
+}
+
+.signup section:last-child {
+    background-color: var(--FORM-BGCOLOR);
+    color: var(--FORM-COLOR);
+    font-size: 0.7em;
+}
+
+input:hover, input:focus {
+    border-color: var(--INPUT-HOVER-BORDER-COLOR);
+}
+
+input::selection {
+    border-color: hsl(249, 10%, 26%) ;
+}
+
+.main_btn {
+    width: 100%;
+    margin: 1em 0;
+    padding: 0;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    background-color: var(--BUTTON-BGCOLOR);
+    color: var(--BUTTON-COLOR);
+    border: none;
+    border-radius: var(--BORDER-RADIUS);
+    outline-offset: 4px;
+    cursor: pointer;
+}
+
+.front {
+    display: block;
+    padding: 1em;
+    border-radius: var(--BORDER-RADIUS);
+    background: var(--BUTTON-FTCOLOR);
+    transform: translateY(-0.3em);
+}
+
+.main_btn:hover .front {
+    background-color: var(--BUTTON-HOVER-COLOR);
+}
+
+.main_btn:active .front {
+    transform: translateY(-2px);
+}
+
+/* desktop */
+@media screen and (min-width: 768px) {
+    body {
+        padding: 11% 15%;
+        background-image: url("../images/bg-intro-desktop.png");
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+    
+    .main {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+    }
+
+    .intro {
+        justify-content: center;
+        text-align: left;
+    }
+}
