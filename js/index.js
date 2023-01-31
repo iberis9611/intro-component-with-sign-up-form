@@ -1,10 +1,14 @@
 let form = document.querySelector('form');
 let inputs = form.querySelectorAll('input');
-let firstName = form.querySelector('#firstName');
-let lastName = form.querySelector('#lastName');
-let email = form.querySelector('#email');
-let password = form.querySelector('#password');
 let btn = form.querySelector('button');
+
+inputs.forEach((input) => {
+    input.addEventListener('input', (e) => {
+        if (e.target.value !== '') {
+            removePrompt(input);
+        }
+    });
+});
 
 btn.addEventListener('click', () => {
     inputs.forEach(input => {
@@ -33,33 +37,8 @@ btn.addEventListener('click', () => {
     })
 });
 
-firstName.addEventListener('input', (e) => {
-    if (e.target.value !== '') {
-        removePrompt(firstName);
-    }
-});
-
-lastName.addEventListener('input', (e) => {
-    if (e.target.value !== '') {
-        removePrompt(lastName);
-    }
-});
-
-email.addEventListener('input', (e) => {
-    if (e.target.value !== '') {
-        removePrompt(email);
-    }
-});
-
-password.addEventListener('input', (e) => {
-    if (e.target.value !== '') {
-        removePrompt(password);
-    }
-});
-
 form.addEventListener('submit', () => {
     alert('Sign up succeeded!');
-    window.location('index.html');
 });
 
 // Append an error message beneath the element
